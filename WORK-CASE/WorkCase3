@@ -28,3 +28,8 @@
 ---
 
 
+# Висновок
+
+In this laboratory work, our team of two successfully mastered the fundamental skills of virtual infrastructure administration. Working collaboratively, we performed the cloning of a working OS and explored the technicalities of exporting virtual environments for cross-platform migration.
+We analyzed and implemented various network configurations, establishing a stable connection between the primary virtual machine and its clone. By utilizing NAT for internet access and an Internal Network for local interaction, we demonstrated effective data exchange using terminal utilities like ping and netcat.
+Furthermore, we configured seamless integration between the host system and guest machines. This experience allowed us to practice team coordination in setting up complex virtual environments, which is a crucial skill for system administration and software development
