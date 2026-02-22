@@ -27,8 +27,63 @@
 
 ---
 
+1. Клонування та експорт віртуальної системи
+
+     1. У середовищі VirtualBox обрав робочу ОС (Work-case 2), натиснув праву кнопку миші та обрав пункт Clone (Клонувати).
+     2. У вікні налаштувань вказав ім'я для нової машини (наприклад, Work-case-3-Clone).
+     3. Обов'язково обрав пункт Generate new MAC addresses for all network adapters (Згенерувати нові MAC-адреси), щоб уникнути конфліктів у мережі.
+     4. Обрав тип клонування: Full clone (Повний клон) для створення незалежної копії.
+
+• Експорт системи для перенесення:
+     1. Для перенесення ОС в інше середовище скористався функцією File -> Export Appliance (Файл -> Експорт конфігурації).
+     2. Вибрав формат .OVA та шлях для збереження файлу. Цей файл містить повний образ системи, який можна імпортувати на іншому ПК.
+
+
+2. Організація мережевих з’єднань 
+
+У ході роботи було розглянуто основні типи мережевих адаптерів:
+
+• NAT (Трансляція адрес): Використовується за замовчуванням. Дозволяє ОС виходити в Інтернет, але машина залишається невидимою для зовнішньої мережі.
+• Bridged (Мережевий міст): ВМ використовує реальну мережеву карту хоста. Вона виглядає як окремий фізичний пристрій у вашій домашній мережі.
+• Host-only (Віртуальний адаптер хоста): Створює мережу виключно між вашим реальним комп’ютером та віртуальними машинами. Інтернету зазвичай немає.
+• Internal Network (Внутрішня мережа): Повністю ізольована мережа всередині VirtualBox. Зв'язок є лише між віртуальними машинами, хост-система та інтернет недоступні.
+
+3. Налаштування мережі та взаємодія між ОС
+
+• Мережеві параметри:
+Для виконання завдань встановив у налаштуваннях обох машин  два адаптери: NAT та Internal Network.
+
+Виконав команди в терміналі:
+
+  • ip a — для перевірки поточної IP-адреси.
+  • ping [IP_адреса_іншої_машини] — для перевірки наявності зв'язку.
+  • Перевірка інтернету:
+Запустив браузер (Firefox/Chrome) на обох ОС та перевірив доступ до YouTube, що підтвердило коректність роботи NAT.
+  • Обмін повідомленнями (Chat):
+Використав утиліту netcat.
+1. На першій ОС відкрив порт: nc -l 1234
+2. На другій ОС підключився до першої: nc [IP_адреса_першої] 1234
+(Результат: текст, введений в одному терміналі, з'являється в іншому).
+  • Спільна папка (Network Share):
+Налаштував спільну папку через меню VirtualBox Devices -> Shared Folders. Монтування в Linux виконав командою:
+sudo mount -t vboxsf [назва_папки] [шлях_монтування]
+Виконав копіювання файлу: cp /media/sf_share/file.txt ~/Desktop.
+
+  4. Обмін інформацією з основною ОС (Windows)
+
+Для реалізації обміну файлами між Windows та віртуальною Linux виконали наступні кроки:
+
+  1. Встановлення Guest Additions: В меню віртуальної машини обрав Devices -> Insert Guest Additions CD Image та інсталював драйвери.
+  2. Drag-and-Drop та Clipboard: У налаштуваннях ВМ (розділ General -> Advanced) встановив режим Bidirectional (Двонаправлений) для функцій Drag'n'Drop та Shared Clipboard.
+  3. Перенесення файлів:
+• З Windows у Linux: Перетягнув аудіо-файл мишкою з робочого столу Windows у вікно віртуальної Linux.
+• З Linux у Windows: Скопіював текстовий документ з домашнього каталогу Linux та вставив його (Ctrl+V) у папку на Windows.
+
+---
 
 # Висновок
+
+--- 
 
 In this laboratory work, our team of two successfully mastered the fundamental skills of virtual infrastructure administration. Working collaboratively, we performed the cloning of a working OS and explored the technicalities of exporting virtual environments for cross-platform migration.
 We analyzed and implemented various network configurations, establishing a stable connection between the primary virtual machine and its clone. By utilizing NAT for internet access and an Internal Network for local interaction, we demonstrated effective data exchange using terminal utilities like ping and netcat.
