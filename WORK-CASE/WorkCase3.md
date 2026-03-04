@@ -155,7 +155,7 @@
 
 **Зворотнє копіювання з ВМ у Windows**
 
-cp document.docx /media/sf_shared
+**cp document.docx /media/sf_shared**
 
 Файл автоматично з’явиться в папці Windows.
 
