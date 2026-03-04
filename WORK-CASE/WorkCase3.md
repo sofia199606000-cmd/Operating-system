@@ -144,11 +144,11 @@
 
 2. У ВМ відкрити:
 
-/media/sf_shared
+**/media/sf_shared**
 
 3.Скопіювати файл: 
 
-cp song.mp3 ~/Desktop
+**cp song.mp3 ~/Desktop**
 
 **Зворотнє копіювання з ВМ у Windows**
 
