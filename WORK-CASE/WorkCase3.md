@@ -73,40 +73,88 @@
 
 ## 3. Налаштування мережі та взаємодія між ОС
 
-• Мережеві параметри:
-Для виконання завдань встановив у налаштуваннях обох машин  два адаптери: NAT та Internal Network.
+Для виконання завдань встановив у налаштуваннях обох машин  два адаптери: **NAT та Internal Network**.
 
-Виконав команди в терміналі:
+<img width="680" height="348" alt="image" src="https://github.com/user-attachments/assets/1cc0a5ed-291c-4653-98c2-cf38e40b0678" />
 
-• ip a — для перевірки поточної IP-адреси.
+<img width="722" height="337" alt="image" src="https://github.com/user-attachments/assets/6cf5dd88-6296-4132-80d5-271b60f83315" />
 
-• ping [IP_адреса_іншої_машини] — для перевірки наявності зв'язку.
+**Виконали команди в терміналі:**
 
-• Перевірка інтернету:
-Запустив браузер (Firefox/Chrome) на обох ОС та перевірив доступ до YouTube, що підтвердило коректність роботи NAT.
+• ip a — показує мережеві інтерфейси та IP-адреси..
+
+<img width="627" height="439" alt="image" src="https://github.com/user-attachments/assets/0b18fc54-1876-4c96-a981-f1ad77c60866" />
+
+• sudo ip addr add 192.168.100.10/24 dev eth1 - призначення статичної IP-адреси.
+
+• sudo ip link set eth1 up - увімкнення інтерфейсу.
+
+<img width="422" height="86" alt="image" src="https://github.com/user-attachments/assets/6f31c0d3-8008-48ec-bb32-db1b41f40c2d" />
+
+• ping 192.168.100.10 - перевірка зв’язку між ВМ.
+
+<img width="547" height="233" alt="image" src="https://github.com/user-attachments/assets/2511a678-bb34-47dd-b817-ad500b3920dd" />
+
+• ping google.com - перевірка доступу до Інтернету
+
+<img width="627" height="197" alt="image" src="https://github.com/user-attachments/assets/0d9a5bf9-1eed-47f4-b5e8-0aeaccc8bdaf" />
+
+
+• **Перевірка інтернету**:
+Запустив браузер (Firefox) на обох ОС та перевірив доступ до YouTube, що підтвердило коректність роботи NAT.
+
+<img width="957" height="913" alt="image" src="https://github.com/user-attachments/assets/a9a39f41-4f44-44c1-a6e7-fe1dad93f145" />
 
 • Обмін повідомленнями (Chat):
-Використав утиліту netcat.
-1. На першій ОС відкрив порт: nc -l 1234
-2. На другій ОС підключився до першої: nc [IP_адреса_першої] 1234
+
+Використав утиліту netcat(чат між машинами).
+1. На першій ОС відкрив порт: nc -l 4444
+2. На другій ОС підключився до першої: nc 192.168.100.10 4444
 (Результат: текст, введений в одному терміналі, з'являється в іншому).
 
+<img width="543" height="121" alt="image" src="https://github.com/user-attachments/assets/c9026771-43de-4467-be48-ff6b208545c8" />
+
+<img width="361" height="125" alt="image" src="https://github.com/user-attachments/assets/cfa2e449-ccaa-4dc4-8e09-80e3ed09e8d0" />
+
+(останнє Hello передалось з одніє ВМ на іншу)
+
   • Спільна папка (Network Share):
-Налаштував спільну папку через меню VirtualBox Devices -> Shared Folders. Монтування в Linux виконав командою:
-sudo mount -t vboxsf [назва_папки] [шлях_монтування]
-Виконав копіювання файлу: cp /media/sf_share/file.txt ~/Desktop.
+Налаштував спільну папку через меню VirtualBox Devices -> Shared Folders. Монтування в Linux виконав командою: 
+
+<img width="1073" height="630" alt="image" src="https://github.com/user-attachments/assets/603f83b9-fe13-4361-9e32-87a53caec9e8" />
+
+І відразу папка, яку створили з'явиться на обох машинах.
 
 ---
 
+
 ## 4. Обмін інформацією з основною ОС (Windows)
 
+Способи
+- Shared Folder (найзручніше) - налаштовується у VirtualBox, працює постійно.
+
+- Drag & Drop - потрібно встановити Guest Additions.
+
+- USB-накопичувач - передача USB у ВМ.
 Для реалізації обміну файлами між Windows та віртуальною Linux виконали наступні кроки:
 
-  1. Встановлення Guest Additions: В меню віртуальної машини обрав Devices -> Insert Guest Additions CD Image та інсталював драйвери.
-  2. Drag-and-Drop та Clipboard: У налаштуваннях ВМ (розділ General -> Advanced) встановив режим Bidirectional (Двонаправлений) для функцій Drag'n'Drop та Shared Clipboard.
-  3. Перенесення файлів:
-• З Windows у Linux: Перетягнув аудіо-файл мишкою з робочого столу Windows у вікно віртуальної Linux.
-• З Linux у Windows: Скопіював текстовий документ з домашнього каталогу Linux та вставив його (Ctrl+V) у папку на Windows.
+**Копіювання аудіо-файлу з Windows у ВМ**
+
+1.Додати папку Windows як Shared Folder.
+
+2. У ВМ відкрити:
+
+/media/sf_shared
+
+3.Скопіювати файл: 
+
+cp song.mp3 ~/Desktop
+
+**Зворотнє копіювання з ВМ у Windows**
+
+cp document.docx /media/sf_shared
+
+Файл автоматично з’явиться в папці Windows.
 
 ---
 
