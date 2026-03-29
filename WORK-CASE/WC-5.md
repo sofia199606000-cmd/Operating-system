@@ -119,25 +119,25 @@ lpr filename
 
 ## Словник (Vocabulary)
 
-1. Automount — mechanism that automatically mounts a storage device when it is connected to the system, without requiring manual user intervention.
+1. Automount — A system feature that seamlessly connects storage drives to the file system the moment they are plugged in, bypassing the need for manual configuration.
 
-2. Block Device — type of hardware device that stores data in fixed-size blocks (e.g., hard drives, USB flash drives) and is accessed via files in `/dev`.
+2. Block Device — Hardware components (like HDDs, SSDs, or USBs) that read and write data in fixed-size chunks, typically represented by device files within the /dev directory.
 
-3. CUPS (Common UNIX Printing System) — printing system used in Linux and Unix-like operating systems that manages print jobs, printers, and queues.
+3. CUPS (Common UNIX Printing System) — The standard print management service for Linux and Unix-based environments, responsible for handling printers, active print jobs, and spooling.
 
-4. Driver — software that allows the operating system to communicate with hardware devices such as printers, USB drives, and other peripherals.
+4. Driver — A specialized software component that acts as a translator, enabling the operating system to interact effectively with external hardware like peripherals and storage drives.
 
-5. Mount Point — directory in the Linux file system where a storage device is attached and made accessible to the user.
+5. Mount Point — A designated folder within the operating system's directory tree where the contents of an external drive become visible and accessible.
 
-6. Mounting — process of attaching a file system from a storage device to a specific directory (mount point) in the Linux file hierarchy.
+6. Mounting — The administrative procedure of linking an external storage device's file system into the main Linux directory structure so its contents can be accessed.
 
-7. Unmounting — process of safely detaching a mounted file system, ensuring that all data is written and no processes are using the device.
+7. Unmounting — The secure process of disconnecting a storage device's file system from the directory tree, guaranteeing that all pending data transfers are complete before physical removal.
 
-8. Print Queue — list of print jobs waiting to be processed by the printer, managed by the printing system (CUPS).
+8. Print Queue — A structured lineup of documents scheduled for printing, overseen and executed in sequential order by the print server.
 
-9. File System — method and data structure used by the operating system to organize and store files on a storage device (ext4, FAT32, exFAT).
+9. File System — The underlying logical architecture (such as ext4, FAT32, or exFAT) that an operating system uses to track, manage, and store data on a physical drive.
 
-10. Filesystem Hierarchy — structure of directories in Linux, starting from the root directory `/`, where all files and devices are organized.
+10. Filesystem Hierarchy — The standardized, tree-like organization of all Linux directories and files, branching out downward from the top-level root (/) directory.
 
 ---
 
