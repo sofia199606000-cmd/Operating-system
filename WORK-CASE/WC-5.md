@@ -42,7 +42,7 @@
 
 ```bash
 sudo mkdir /mnt/usb
-
+```
 
 ### 1.3 — Різниця Linux та Windows
 
