@@ -76,11 +76,15 @@
 
 - Виконання задач тільки раз у рік, раз у місяць, раз у день, щогодини, при вмиканні (після перезавантаження).
 
+
 <img width="511" height="169" alt="image" src="https://github.com/user-attachments/assets/545d82dd-4456-4b0d-9ca1-4add22f63dd3" />
+
 
 <img width="628" height="223" alt="image" src="https://github.com/user-attachments/assets/fc0982e3-c17e-49ba-88de-73f118821b8d" />
 
+
 <img width="580" height="176" alt="image" src="https://github.com/user-attachments/assets/1a8d4367-5505-48fc-bb22-508e6443ca89" />
+
 
 0 8 * * * firefox - Запуск Firefox о 08:00
 
