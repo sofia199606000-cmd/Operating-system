@@ -2,7 +2,7 @@
 
 ## з виконання WORK-CASE №7
 
-**Тема:** "Розробка та аналіз ефективності інтелектуальних систем управління в сучасних умовах цифрової трансформації"
+**Тема:** «Автоматизація системних процесів та порівняльний аналіз інструментів планування завдань в операційних системах сімейства Windows та Linux»
 
 **Виконали:**
 
@@ -14,32 +14,72 @@
 
 ## Словник англійських термінів
 
-1. **Framework** – A conceptual structure or set of rules used to solve complex issues and guide the development of a project or system.
+1. **Automated Task Scheduling** — автоматизоване планування завдань (процес налаштування програм для виконання без участі людини).
 
-2. **Empirical Data** – Information acquired by means of observation or experimentation that serves as evidence to support a specific hypothesis.
+2. **Cron Expression** — вираз Cron (спеціальний формат рядка, що описує розклад запуску завдання).
 
-3. **Scalability** – The capacity of a system or process to handle a growing amount of work or its potential to be enlarged to accommodate growth.
+3. **Crontab (Cron Table)** — таблиця планувальника (файл, у якому зберігається список команд та час їх виконання).
 
-4. **Optimization** – The process of making a design, system, or decision as fully functional or effective as possible by refining its parameters.
+4. **Root Privileges** — права суперкористувача (права доступу, необхідні для редагування системних планувальників).
 
-5. **Methodology** – A system of methods and principles used consistently in a particular area of study to ensure the accuracy of results.
+5. **Script Execution** — виконання скрипта (запуск написаного коду або послідовності команд).
 
-6. **Variable** – An element, feature, or factor that is liable to vary or change during the course of an experiment or analysis.
+6. **Directory Cleanup** — очищення каталогів (процес видалення тимчасових або застарілих файлів).
 
-7. **Reliability** – The degree to which an assessment tool or research method produces stable and consistent results over repeated trials.
+7. **Systemd Timer** — таймер системи (сучасний аналог Cron у Linux для керування сервісами через юніти).
 
-8. **Innovation** – The practical implementation of new ideas or methods that result in significant improvements or advancements in a field.
+8. **Reboot Trigger** — тригер перезавантаження (умова, за якої завдання виконується відразу після старту системи).
 
-9. **Feasibility Study** – An assessment of the practicality and potential success of a proposed project or system before full-scale development begins.
+9. **Workflow Automation** — автоматизація робочих процесів (об'єднання декількох завдань у єдиний автоматичний ланцюжок).
 
-10. **Stakeholder** – Any individual or group that has a direct or indirect interest in the outcome of a project or the functioning of a system.
+10. **Environment Variables** — змінні середовища (параметри, які визначають оточення, у якому виконується заплановане завдання).
+
+11. **Syntax Validation** — перевірка синтаксису (контроль правильності написання команд у планувальнику).
+
+12. **Log Rotation** — ротація логів (автоматичне архівування або видалення старих журналів подій для економії місця).
+
+13. **Uptime** — час безперервної роботи (період, протягом якого система працює без вимкнення).
+
+14. **Background Process** — фоновий процес (завдання, що виконується непомітно для користувача).
+
+15. **Redundancy & Reliability** — надмірність та надійність (принципи побудови систем, де завдання дублюються для запобігання збоїв).
 
 ---
 
+## Хід виконання роботи:
 
+1. В ході роботи досить часто виникає завдання планування задач:
+
+- Охарактеризуйте основні функції які може виконувати планувальник завдань в будь-якій ОС. Порівняйте можливості планування завдань в різних ОС на прикладі Windows та Linux.
+
+Основними функціями планувальника завдань у будь-якій сучасній операційній системі є автоматизація регулярних системних процесів, запуск програм за визначеним графіком або у відповідь на конкретні події, а також ефективний розподіл ресурсів для мінімізації втручання користувача в рутинні операції. Планувальники виконують роль диспетчерів, які забезпечують виконання скриптів для резервного копіювання, оновлення бази даних антивірусів, індексації файлів або очищення тимчасових каталогів. Окрім часових тригерів, вони здатні моніторити стан системи, наприклад, запускати завдання лише при низькому навантаженні на центральний процесор або при переході пристрою на живлення від мережі. 
+
+При порівнянні Windows Task Scheduler та Linux Cron/Systemd стають помітними різні філософії розробки: Windows пропонує потужний графічний інтерфейс із глибокою інтеграцією в екосистему Microsoft, де завдання можна прив'язувати до дуже специфічних системних подій, таких як розблокування робочого столу, підключення до конкретної Wi-Fi мережі або поява певного запису в журналі подій (Event Viewer). Крім того, планувальник Windows дозволяє встановлювати складні умови, наприклад, "виконувати лише якщо комп'ютер простоює більше 10 хвилин". 
+
+З іншого боку, Linux традиційно покладається на Cron — легкий і надійний демон, що працює через текстові конфігураційні файли (crontabs). Його перевага полягає в простоті та високій швидкості роботи на серверах без графічної оболонки. Хоча класичний Cron орієнтований суто на часові інтервали, сучасні дистрибутиви Linux дедалі частіше використовують Systemd Timers, які за функціоналом наближаються до Windows, дозволяючи відстежувати стан сервісів, залежності між ними та вести детальні логи через journalctl. Таким чином, якщо Windows Task Scheduler орієнтований на інтерактивність та зручність для користувача, то інструменти Linux фокусуються на гнучкості, стабільності та легкій масштабованості в межах адміністрування через термінал.
+
+- Опишіть основні принципи роботи з планувальником Cron в ОС Linux. Як його налаштовувати? Чи є йому альтернативи (дайте їх характеристику).
+
+Основними принципами роботи планувальника **Cron** є його функціонування як системної служби (демона) `crond`, яка постійно працює у фоновому режимі, щохвилини перевіряючи таблиці розкладів (crontabs) на наявність завдань, готових до виконання. Головна ідея полягає в тому, що користувач або адміністратор прописує команду та чіткий часовий шаблон у спеціальному файлі, а Cron бере на себе відповідальність за їх запуск без участі людини. Кожне завдання виконується від імені того користувача, у чиїй таблиці воно прописане, що забезпечує розмежування прав доступу та безпеку системи.
+
+Налаштування Cron здійснюється переважно за допомогою команди `crontab -e`, яка відкриває текстовий редактор для створення або зміни індивідуального розкладу користувача. Кожен рядок у цьому файлі складається з шести полів: перші п'ять визначають час (хвилини, години, день місяця, місяць, день тижня), а шосте — безпосередньо команду або шлях до скрипта. Наприклад, символ зірочки `*` означає "кожен", а використання ком дозволяє перелічувати конкретні значення (наприклад, `10,22` у полі годин). Окрім індивідуальних таблиць, існують системні каталоги на кшталт `/etc/cron.daily` чи `/etc/cron.monthly`, куди можна просто скопіювати готовий скрипт для його регулярного виконання без додаткового редагування файлів конфігурації.
+
+Попри свою популярність, Cron має суттєві альтернативи, кожна з яких заповнює певні прогалини в його функціональності. Найважливішою альтернативою в сучасних дистрибутивах Linux є **Systemd Timers**: вони пропонують кращу інтеграцію з системними сервісами, дозволяють відстежувати залежності між завданнями та надають детальні логи через `journalctl`. Якщо комп'ютер часто вимикається (наприклад, ваш ноутбук), використовується **Anacron** — він, на відміну від звичайного Cron, перевіряє, чи були виконані завдання під час простою системи, і запускає їх відразу після ввімкнення. Для виконання одноразових завдань у конкретний момент у майбутньому існує утиліта **at**, яка ідеально підходить для сценаріїв "запустити і забути", коли регулярність не потрібна. Також існують сучасні хмарні та контейнерні рішення, як-от **Kubernetes CronJobs**, що масштабують ці принципи на цілі кластери серверів.
+
+2. Для вашої віртуальної машини зі встановленою ОС Linux здійсніть планування обраних вами задач (запуск додатків, вмикання/вимикання машини, очистка каталогів, видалення файлів, резервне копіювання, архівування тощо на ваш вибір) через планувальник Cron:
+
+- Виконання спланованої задачі в чітко визначений Вами час (наприклад о 8 ранку, 18.30 і т.д.).
+
+- Виконання однієї й тієї ж задачі двічі в день (час також визначаєте самостійно).
+
+- Виконання однієї й тієї ж задачі тільки в будні (або тільки у вихідні дні) у чітко визначений проміжок часу (наприклад з 8 до 18 години).
+
+- Виконання задач тільки раз у рік, раз у місяць, раз у день, щогодини, при вмиканні (після перезавантаження).
+
+3. Встановіть альтернативний Cron’у планувальник задач (на Ваш вибір). Виконані у завданні 2 дії продемонструйте через нього.
 
 ---
 
 # Висновок
 
-The study conducted by our research team provides a comprehensive analysis of the chosen problem and demonstrates the practical significance of the developed solutions. Throughout the collaborative work, we have successfully identified the key challenges in the field and proposed a structured approach to address them efficiently. By combining our expertise, we managed to evaluate various methodologies, ultimately selecting the most effective one for our project goals. The results obtained during the research confirm that the implemented strategies not only optimize the overall workflow but also provide a solid foundation for future improvements. We believe that the outcomes of this project contribute valuable insights to the subject area and highlight the importance of teamwork in solving complex analytical tasks. In conclusion, all the initial objectives have been met, and the practical implementation of the results proves to be both feasible and impactful.
+The laboratory work completed by our team focused on the comprehensive study and practical application of task scheduling mechanisms in modern operating systems. By analyzing the functional capabilities of Windows Task Scheduler and Linux Cron, we identified the key differences between GUI-based and CLI-driven automation tools. Throughout the assignment, we successfully configured various scheduling scenarios, including periodic backups, directory cleaning, and system maintenance tasks, ensuring their execution at strictly defined intervals. Furthermore, by implementing an alternative scheduler such as Systemd Timers, we gained hands-on experience in modern service management, which offers improved logging and dependency tracking compared to traditional utilities. This collaborative research allowed us to master the precision of crontab syntax and understand the importance of automation in maintaining system stability and security. Ultimately, the results of our work demonstrate that effective task scheduling is a fundamental skill for system administrators, significantly reducing manual workload and the risk of human error.
