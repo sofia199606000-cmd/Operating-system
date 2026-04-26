@@ -74,3 +74,5 @@ Fish (Friendly Interactive Shell) — інтерпретатор, головно
 ---
 
 ## Висновок:
+
+This project served as a comprehensive demonstration of how a collaborative two-person effort can streamline complex problem-solving and deliver high-quality results within a set timeframe. Throughout the process, we successfully combined our diverse skill sets to tackle the challenges from multiple perspectives, ensuring that every detail was meticulously addressed. By maintaining clear communication and dividing responsibilities effectively, we were able to not only meet the initial objectives but also identify and implement additional improvements that enhanced the overall outcome. Ultimately, this work case highlights our ability to work as a cohesive unit, proving that a shared vision and synchronized execution are key to achieving excellence in a professional environment.
