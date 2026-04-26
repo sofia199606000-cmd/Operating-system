@@ -76,6 +76,28 @@
 
 - Виконання задач тільки раз у рік, раз у місяць, раз у день, щогодини, при вмиканні (після перезавантаження).
 
+<img width="511" height="169" alt="image" src="https://github.com/user-attachments/assets/545d82dd-4456-4b0d-9ca1-4add22f63dd3" />
+
+<img width="628" height="223" alt="image" src="https://github.com/user-attachments/assets/fc0982e3-c17e-49ba-88de-73f118821b8d" />
+
+<img width="580" height="176" alt="image" src="https://github.com/user-attachments/assets/1a8d4367-5505-48fc-bb22-508e6443ca89" />
+
+0 8 * * * firefox - Запуск Firefox о 08:00
+
+0 9,21 * * * rm -rf /home/kali/Downloads/* - Очищення папки Downloads двічі на день о 09:00 та 21:00
+
+0 8-18/2 * * 1-5 cp -r /home/kali/Documents /home/kali/Backup - Резервне копіювання тільки у будні кожні 2 години з 08 до 18
+
+0 0 1 1 * tar -czf /home/kali/year_backup.tar.gz /home/kali/Documents - Раз у рік — архівація 1 січня
+
+0 1 1 * * rm -rf /tmp/* - Раз у місяць — очистка tmp
+
+0 20 * * * cp -r /home/kali/Documents /home/kali/DailyBackup - Раз у день — резервна копія о 20:00
+
+0 * * * * date >> /home/kali/log.txt - Щогодини — запис часу у лог
+
+@reboot firefox - При запуску системи
+
 3. Встановіть альтернативний Cron’у планувальник задач (на Ваш вибір). Виконані у завданні 2 дії продемонструйте через нього.
 
 ---
